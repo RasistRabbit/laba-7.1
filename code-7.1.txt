@@ -1,0 +1,34 @@
+#include <iostream>
+
+class Complex {
+public:
+    double real;
+    double imag;
+
+    Complex(double r, double i) : real(r), imag(i) {}
+
+    Complex operator+(const Complex& other) {
+        return Complex(real + other.real, imag + other.imag);
+    }
+};
+
+int add(int a, int b) {
+    return a + b;
+}
+
+Complex add(const Complex& c1, const Complex& c2) {
+    return c1 + c2;
+}
+
+int main() {
+    int num1 = 5, num2 = 10;
+    Complex complex1(2.0, 3.0);
+    Complex complex2(1.0, 2.0);
+
+    std::cout << "Сумма целых чисел: " << add(num1, num2) << std::endl;
+    std::cout << "Сумма комплексных чисел: " << add(complex1, complex2).real << " + " << add(complex1, complex2).imag << "i" << std::endl;
+
+    return 0;
+}
+
+В этом примере функция add перегружена для работы с целыми числами и комплексными числами. Функция для целых чисел просто складывает два целых числа, а функция для комплексных чисел складывает их действительные и мнимые части.
